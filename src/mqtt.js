@@ -645,6 +645,25 @@ function obfuscateCoordinate(coordinateI) {
     return (parts[0] + precisionPart) * 100000;
 }
 
+function getObfuscatedPositionPrecision(precision) {
+    if (!obfuscatePositions) return precision;
+
+    switch (obfuscatePrecision) {
+        case 0:
+            return 4;
+        case 1:
+            return 11;
+        case 2:
+            return 13;
+        case 3:
+            return 16;
+        case 4:
+            return 20;
+        default:
+            return 4;
+    }
+}
+
 // subscribe to everything when connected
 client.on("connect", () => {
     for(const mqttTopic of mqttTopics){
@@ -1201,7 +1220,7 @@ client.on("message", async (topic, message) => {
                     region: mapReport.region,
                     modem_preset: mapReport.modemPreset,
                     has_default_channel: mapReport.hasDefaultChannel,
-                    position_precision: mapReport.positionPrecision,
+                    position_precision: getObfuscatedPositionPrecision(mapReport.positionPrecision),
                     num_online_local_nodes: mapReport.numOnlineLocalNodes,
                     position_updated_at: new Date(),
                 };
@@ -1256,7 +1275,7 @@ client.on("message", async (topic, message) => {
                             latitude: obfuscateCoordinate(mapReport.latitudeI),
                             longitude: obfuscateCoordinate(mapReport.longitudeI),
                             altitude: mapReport.altitude,
-                            position_precision: mapReport.positionPrecision,
+                            position_precision: getObfuscatedPositionPrecision(mapReport.positionPrecision),
                             num_online_local_nodes: mapReport.numOnlineLocalNodes,
                         },
                     });
