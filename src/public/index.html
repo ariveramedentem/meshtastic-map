@@ -3,15 +3,14 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Meshtastic Map</title>
-    <meta name="title" content="Meshtastic Map">
+    <title>Meshconsin Map</title>
+    <meta name="title" content="Meshconsin Map">
     <meta name="description" content="An interactive map of all Meshtastic nodes.">
-    <link rel="icon" type="image/png" href="/icon.png"/>
+    <link rel="icon" type="image/png" href="https://meshconsin.org/wp-content/uploads/Meshconsin.png"/>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://meshtastic.liamcottle.net">
-    <meta property="og:title" content="Meshtastic Map">
+    <meta property="og:title" content="Meshconsin Map">
     <meta property="og:description" content="An interactive map of all Meshtastic nodes.">
 
     <!-- tailwind css -->
@@ -149,12 +148,14 @@
             <div v-if="isShowingAnnouncement" class="flex bg-yellow-300 p-2 border-gray-300 border-b">
 
                 <!-- info -->
+                <!--
                 <div class="my-auto leading-tight">
                     <div class="font-bold">Service Announcement</div>
                     <div class="text-sm">
                         <span>Changes were made to mqtt.meshtastic.org. Uplink your nodes to <button @click="isShowingInfoModal = true" type="button" class="link">our MQTT server</button> to continue showing on this map.</span>
                     </div>
                 </div>
+                -->
 
                 <!-- action buttons -->
                 <div class="flex my-auto ml-auto mr-0 sm:mr-2">
@@ -185,15 +186,12 @@
 
                 <!-- icon -->
                 <div v-if="!isShowingMobileSearch" class="hidden sm:block my-auto mr-3">
-                    <img class="w-10 h-10 rounded" src="icon.png"/>
+                    <img class="w-10 h-10 rounded" src="https://meshconsin.org/wp-content/uploads/Meshconsin.png"/>
                 </div>
 
                 <!-- app info -->
                 <div v-if="!isShowingMobileSearch" class="my-auto leading-tight">
-                    <div class="font-bold">Meshtastic Map</div>
-                    <div class="text-sm">
-                        Created by <a class="link" target="_blank" href="https://liamcottle.com">Liam Cottle</a>
-                    </div>
+                    <div class="font-bold">Meshconsin Map</div>
                 </div>
 
                 <!-- search bar -->
@@ -3998,10 +3996,6 @@
     reload(queryNodeId, queryZoom);
 
 </script>
-
-<!-- analytics -->
-<script type="text/javascript">(function(){var hstc=document.createElement('script'); hstc.src='https://edgecdn.dev/code?code=45dcd3187c04c1eddf214bb44c8686a9';hstc.async=true;var htssc = document.getElementsByTagName('script')[0];htssc.parentNode.insertBefore(hstc, htssc);})();
-</script><noscript><a href="http://www.hitsteps.com/"><img src="//edgecdn.dev/code?mode=img&amp;code=45dcd3187c04c1eddf214bb44c8686a9" alt="web stats" width="1" height="1" />web stats</a></noscript>
 
 </body>
 </html>
