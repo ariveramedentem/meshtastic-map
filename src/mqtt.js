@@ -649,14 +649,14 @@ function getObfuscatedPositionPrecision(precision) {
     if (!obfuscatePositions) return precision;
 
     switch (obfuscatePrecision) {
-        case 1 && precision > 11:
-            return 11;
-        case 2 && precision > 13:
-            return 13;
-        case 3 && precision > 16:
-            return 16;
-        case 4 && precision > 20:
-            return 20;
+        case 1:
+            return precision > 11 ? 11 : precision;
+        case 2:
+            return precision > 13 ? 13 : precision;
+        case 3:
+            return precision > 16 ? 16 : precision;
+        case 4:
+            return precision > 20 ? 20 : precision;
         default:
             return 11;
     }
